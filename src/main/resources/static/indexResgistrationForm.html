@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Class Registration</title>
+    <link rel="stylesheet" href="/stylesRegistraionForm.css"> <!-- Adjust the path if needed -->
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Include jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script> <!-- Updated jQuery version -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Include Bootstrap Datepicker CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+</head>
+
+
+<body>
+
+    <div class="overlay" id="popupOverlay">
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <img src="/yogaint.jpg" alt="Yoga Image" class="yoga-image">
+
+            <form action="/register-yoga-class" method="post" class="registration-form" onsubmit="return validateForm()">
+                <label for="form3Example1">Full Name:</label>
+                <div class="form-outline mb-4">
+                    <input type="text" id="form3Example1" class="form-control form-control-lg" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label for="form3Example97">Email ID:</label>
+                    <input type="text" id="form3Example97" class="form-control form-control-lg" />
+                </div>
+
+                <label for="form3Example8">Address:</label>
+                <div class="form-outline mb-4">
+                    <input type="text" id="form3Example8" class="form-control form-control-lg" />
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <label for="state">State:</label>
+                        <select id="state" class="select">
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <label for="city">City:</label>
+                        <select id="city" class="select">
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+                    <h6 class="mb-0 me-4">Gender: </h6>
+
+                    <div class="form-check form-check-inline mb-0 me-4">
+                        <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="female" />
+                        <label class="form-check-label" for="femaleGender">Female</label>
+                    </div>
+
+                    <div class="form-check form-check-inline mb-0 me-4">
+                        <input class="form-check-input" type="radio" name="gender" id="maleGender" value="male" />
+                        <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+
+                    <div class="form-check form-check-inline mb-0 me-4">
+                        <input class="form-check-input" type="radio" name="gender" id="otherGender" value="other" />
+                        <label class="form-check-label" for="otherGender">Other</label>
+                    </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label for="form3Example9">DOB:</label>
+                    <input type="text" id="form3Example9" class="form-control form-control-lg datepicker" data-date-start-view="2d" data-date-start-date="1960-01-01" data-date-end-date="<?= date('Y') - 4 ?>-12-31" value="1990-01-01" />
+                </div>
+
+                <div class="d-flex justify-content-end pt-3">
+                    <input type="reset" class="btn btn-light btn-lg"> <!-- Change to reset type -->
+                    <button type="button" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function closePopup() {
+            document.getElementById("popupOverlay").style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("popupOverlay").style.display = "flex";
+        });
+
+        function validateForm() {
+            // Validate other fields if needed
+
+            // Validate DOB
+            var dobInput = document.getElementById("form3Example9").value;
+            var dob = new Date(dobInput);
+            var maxDate = new Date();
+
+            if (dob > maxDate) {
+                alert("DOB cannot be in the future.");
+                return false;
+            }
+
+            return true;
+        }
+
+        // Initialize the datepicker
+        $(document).ready(function () {
+            $(".datepicker").datepicker();
+        });
+    </script>
+
+</body>
+
+</html>

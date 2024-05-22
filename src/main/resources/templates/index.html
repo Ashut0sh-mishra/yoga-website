@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Yoga Studio</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Adjust the path if needed -->
+</head>
+<body>
+
+    <header>
+        <h1>Your Yoga Studio</h1>
+        <button class="openbtn" onclick="toggleSidebar()">&#9776; Menu</button>
+    </header>
+
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+        <a href="#home">Home</a>
+        <a href="indexResgistrationForm.html">Register</a>
+        <a href="login.html">Login</a>
+        <a href="#classes">Classes</a>
+        <a href="#instructors">Instructors</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#video-library">Video Library</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="main-content">
+        <section id="home">
+            <h1>Welcome to Your Yoga Journey</h1>
+            <p>Experience tranquility and harmony through our yoga classes. Join us to rejuvenate your mind, body, and soul.</p>
+            <p>Benefits of practicing with us:</p>
+            <ul>
+                <li>Expert Instructors</li>
+                <li>Personalized Sessions</li>
+                <li>Flexible Timings</li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </section>
+
+        <section id="classes">
+            <h1>Our Classes</h1>
+            <p>Explore a variety of yoga classes tailored to suit different levels and preferences:</p>
+            <ul>
+                <li>Hatha Yoga</li>
+                <li>Vinyasa Flow</li>
+                <li>Restorative Yoga</li>
+                <li>Yoga for Beginners</li>
+            </ul>
+        </section>
+
+        <section id="instructors">
+            <h1>Meet Our Instructors</h1>
+            <p>Our experienced and passionate instructors are dedicated to guiding you on your yoga journey:</p>
+            <ul>
+                <li>John Doe - Certified Hatha Yoga Instructor</li>
+                <li>Jane Smith - Experienced Vinyasa Flow Teacher</li>
+                <!-- Add more instructors as needed -->
+            </ul>
+        </section>
+
+        <section id="schedule">
+            <h1>Class Schedule</h1>
+            <p>View our weekly class schedule and find the perfect time for your practice:</p>
+            <!-- Add a table or other schedule representation here -->
+            <p>Monday:
+                <ul>
+                    <li>9:00 AM - Hatha Yoga</li>
+                    <li>6:00 PM - Vinyasa Flow</li>
+                </ul>
+            </p>
+            <p>Tuesday:
+                <ul>
+                    <li>10:00 AM - Restorative Yoga</li>
+                    <li>7:00 PM - Yoga for Beginners</li>
+                </ul>
+            </p>
+            <!-- Add more days and classes as needed -->
+        </section>
+
+        <section id="video-library">
+            <h1>Video Library</h1>
+            <p>Explore our video library for on-demand yoga sessions:</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/your_video_id1" frameborder="0" allowfullscreen></iframe>
+                <!-- Add more video iframes as needed -->
+            </div>
+        </section>
+
+        <section id="contact">
+            <h1>Contact Us</h1>
+            <p>Ready to embark on your yoga journey? Contact us for more information or to schedule your first session.</p>
+            <p class="contact-info">Email: <a href="mailto:ashutoshmishr007@gmail.com" class="email">ashutoshmishr007@gmail.com</a></p>
+            <p class="contact-info">Phone: <a href="tel:+91 9651897069" class="phone">+91 9651897069</a></p>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Your Yoga Studio. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const mainContent = document.querySelector(".main-content");
+            const isOpen = sidebar.style.width === "250px";
+            sidebar.style.width = isOpen ? "0" : "250px";
+            mainContent.style.marginLeft = isOpen ? "0" : "250px";
+        }
+    </script>
+</body>
+</html>
